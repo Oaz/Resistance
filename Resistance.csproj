@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5DD96BFD-F847-4DD6-9D22-B542882BDB03}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Resistance</RootNamespace>
+    <AssemblyName>Resistance</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.framework, Version=2.5.10.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
+      <Package>mono-nunit</Package>
+    </Reference>
+    <Reference Include="nunit.core, Version=2.5.10.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77">
+      <Private>False</Private>
+      <Package>mono-nunit</Package>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="tests\ConvertTests.cs" />
+    <Compile Include="src\Convert.cs" />
+    <Compile Include="tests\IDecodeMessageTests.cs" />
+    <Compile Include="src\IDecodeMessage.cs" />
+    <Compile Include="tests\DeepSearchDecoderTests.cs" />
+    <Compile Include="src\DeepSearchDecoder.cs" />
+    <Compile Include="src\IFindWords.cs" />
+    <Compile Include="tests\IFindWordsTests.cs" />
+    <Compile Include="tests\DumbThesaurusTests.cs" />
+    <Compile Include="src\DumbThesaurus.cs" />
+    <Compile Include="tests\CachedDeepSearchDecoderTests.cs" />
+    <Compile Include="src\CachedDeepSearchDecoder.cs" />
+    <Compile Include="src\DeepSearchStrategy.cs" />
+    <Compile Include="tests\TreeThesaurusTests.cs" />
+    <Compile Include="src\TreeThesaurus.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="src\" />
+    <Folder Include="tests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="tests\Test_4_input.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resistance.dia" />
+    <None Include="Tree.dia" />
+  </ItemGroup>
+</Project>
